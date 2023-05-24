@@ -11,4 +11,12 @@ public class AppConfig {
         helloWorld.setMessage("Hello World!");
         return helloWorld;
     }
+
+    @Bean(name = "cat")
+    @Scope("prototype")//Scope("prototype") → Каждый раз, когда кому-то нужна ссылка на ваш компонент, Spring создает новый.
+    public Cat getCat() {
+        Cat cat = new Cat();
+        cat.setMessage("Cat !");
+        return cat;
+    }
 }
